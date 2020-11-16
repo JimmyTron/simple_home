@@ -44,7 +44,8 @@ defmodule SimpleHome.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:credo, "~> 1.4.0", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -59,7 +60,13 @@ defmodule SimpleHome.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      check_lint: [
+        "format",
+        "format --check-formatted",
+        "compile --warnings-as-errors --force",
+        "credo --strict"
+      ]
     ]
   end
 end
