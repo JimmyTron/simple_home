@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  database:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  simple_home:
+    build: .
+    image: simple_home
+    environment:
+      POSTGRES_HOST: "database"
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "4000:4000"
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
