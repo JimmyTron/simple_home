@@ -12,7 +12,8 @@
     "lib/simple_home_web/views/page_view.ex",
     "lib/simple_home.ex",
     "lib/simple_home_web/router.ex",
-    "lib/simple_home/application.ex"
+    "lib/simple_home/application.ex",
+    "test/support/feature_case.ex"
   ],
   "coverage_options": {
     "minimum_coverage": 95

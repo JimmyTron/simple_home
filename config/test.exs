@@ -16,10 +16,15 @@ config :simple_home, SimpleHome.Repo,
 # you can enable the server option below.
 config :simple_home, SimpleHomeWeb.Endpoint,
   http: [port: 4002],
-  server: false
+  server: true
 
+config :simple_home, :sql_sandbox, true
 # Print only warnings and errors during test
 config :logger, level: :warn
 
 config :phoenix_integration,
   endpoint: SimpleHome.Endpoint
+
+config :wallaby,
+  driver: Wallaby.Chrome,
+  chrome: [headless: true]
