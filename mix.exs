@@ -53,7 +53,9 @@ defmodule SimpleHome.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.4.0", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.13.3", only: :test}
+      {:excoveralls, "~> 0.13.3", only: :test},
+      {:phoenix_integration, "~> 0.8.2"},
+      {:wallaby, "~> 0.26.0", runtime: false, only: :test}
     ]
   end
 
