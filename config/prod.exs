@@ -15,6 +15,16 @@ config :simple_home, SimpleHomeWeb.Endpoint,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :sentry,
+  dsn: System.get_env("SENTRY_URL"),
+  environment_name: :prod,
+  enable_source_code_context: true,
+  root_source_code_path: File.cwd!(),
+  tags: %{
+    env: "production"
+  },
+  included_environments: [:prod]
+
 # Do not print debug messages in production
 config :logger, level: :info
 

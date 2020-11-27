@@ -1,5 +1,14 @@
 defmodule SimpleHomeWeb.Endpoint do
+  use Sentry.PlugCapture
   use Phoenix.Endpoint, otp_app: :simple_home
+
+  # ...
+  plug Plug.Parsers,
+    parsers: [:urlencoded, :multipart, :json],
+    pass: ["*/*"],
+    json_decoder: Phoenix.json_library()
+
+  plug Sentry.PlugContext
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
