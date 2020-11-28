@@ -1,4 +1,4 @@
-name: simple home test
+name: simple home CI
 
 on:
   push:
