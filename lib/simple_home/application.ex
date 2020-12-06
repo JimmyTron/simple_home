@@ -10,7 +10,7 @@ defmodule SimpleHome.Application do
       # Start the Ecto repository
       SimpleHome.Repo,
       # Start the Telemetry supervisor
-      SimpleHomeWeb.Telemetry,
+
       # Start the PubSub system
       {Phoenix.PubSub, name: SimpleHome.PubSub},
       # Start the Endpoint (http/https)

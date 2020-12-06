@@ -16,7 +16,7 @@ config :simple_home, SimpleHomeWeb.Endpoint,
   secret_key_base: "ol6R0vOsS3iwVe7JCH/VarqVys9eN49ZpecbNOxsPv/u3ZrFmNaUY2J4cbs4gv5Y",
   render_errors: [view: SimpleHomeWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: SimpleHome.PubSub,
-  live_view: [signing_salt: "0PfXT96p"]
+  live_view: [signing_salt: "XKZVsovqyI0SfguLy096W8PKJCs0PjQs"]
 
 # Configures Elixir's Logger
 config :logger, :console,

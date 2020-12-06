@@ -24,6 +24,7 @@ defmodule SimpleHomeWeb do
       import Plug.Conn
       import SimpleHomeWeb.Gettext
       alias SimpleHomeWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -37,6 +38,8 @@ defmodule SimpleHomeWeb do
       import Phoenix.Controller,
         only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
 
+      import Phoenix.LiveView.Helpers
+
       # Include shared imports and aliases for views
       unquote(view_helpers())
     end
@@ -48,6 +51,7 @@ defmodule SimpleHomeWeb do
 
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
@@ -55,6 +59,23 @@ defmodule SimpleHomeWeb do
     quote do
       use Phoenix.Channel
       import SimpleHomeWeb.Gettext
+    end
+  end
+
+  def live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {SimpleHomeWeb.LayoutView, "live.html"}
+
+      unquote(view_helpers())
+    end
+  end
+
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
+
+      unquote(view_helpers())
     end
   end
 

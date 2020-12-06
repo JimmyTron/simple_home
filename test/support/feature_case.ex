@@ -5,13 +5,13 @@ defmodule SimpleHomeWeb.FeatureCase do
   using do
     quote do
       use Wallaby.DSL
-
       alias SimpleHome.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-
-      import SimpleHomeWeb.Router.Helpers
+      import Wallaby.Query
+      import Wallaby.Browser
+      alias SimpleHomeWeb.Router.Helpers, as: Routes
     end
   end
 
